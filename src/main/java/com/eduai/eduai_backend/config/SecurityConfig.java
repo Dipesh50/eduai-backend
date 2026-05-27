@@ -61,8 +61,7 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
                 "http://localhost:5174",
-                "https://eduai-frontend.vercel.app",
-                "https://eduai-frontend-YOUR_HASH.vercel.app"
+                "https://eduai-frontend-three.vercel.app"
         ));
         config.setAllowedMethods(List.of(
                 "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"
