@@ -58,36 +58,22 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-
-        // Allow your React frontend
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
                 "http://localhost:5174",
-                "http://localhost:3000"
+                "https://eduai-frontend.vercel.app",
+                "https://eduai-frontend-YOUR_HASH.vercel.app"
         ));
-
-        // Allow all HTTP methods
         config.setAllowedMethods(List.of(
-                "GET", "POST", "PUT", "DELETE",
-                "OPTIONS", "PATCH"
+                "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"
         ));
-
-        // Allow all headers including Authorization
         config.setAllowedHeaders(List.of("*"));
-
-        // Allow Authorization header in response
         config.setExposedHeaders(List.of("Authorization"));
-
-        // Allow cookies/credentials
         config.setAllowCredentials(true);
-
-        // Cache preflight for 1 hour
         config.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
-
-        // Apply to all endpoints
         source.registerCorsConfiguration("/**", config);
         return source;
     }

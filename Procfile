@@ -1,0 +1,1 @@
+web: java -jar target/eduai-backend-0.0.1-SNAPSHOT.jar
