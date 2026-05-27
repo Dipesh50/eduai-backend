@@ -3,6 +3,7 @@ package com.eduai.eduai_backend.config;
 import com.eduai.eduai_backend.repository.UserRepository;
 import com.eduai.eduai_backend.security.JwtAuthFilter;
 import org.springframework.context.annotation.*;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.*;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -38,13 +39,13 @@ public class SecurityConfig {
             throws Exception {
         http
                 // CORS must be first — allows React to call backend
-                .cors(cors -> cors.configurationSource(
-                        corsConfigurationSource()))
+                .cors(cors -> {})
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm
                         .sessionCreationPolicy(
                                 SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
                         .anyRequest().authenticated()
                 )
