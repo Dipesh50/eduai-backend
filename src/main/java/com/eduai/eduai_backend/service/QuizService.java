@@ -45,6 +45,7 @@ public class QuizService {
                         .optionB(q.getOptionB())
                         .optionC(q.getOptionC())
                         .optionD(q.getOptionD())
+                        .correctAnswer(q.getCorrectAnswer())
                         .difficulty(q.getDifficulty())
                         .build())
                 .collect(Collectors.toList());
@@ -99,6 +100,7 @@ public class QuizService {
                         .optionB(obj.getString("optionB"))
                         .optionC(obj.getString("optionC"))
                         .optionD(obj.getString("optionD"))
+                        .correctAnswer(obj.getString("correctAnswer"))
                         .difficulty(obj.optString("difficulty", "Medium"))
                         .build());
             }
