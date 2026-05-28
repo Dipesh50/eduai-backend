@@ -1,1 +1,1 @@
-web: java -jar target/eduai-backend-0.0.1-SNAPSHOT.jar
+web: java -Xmx300m -Xms200m -XX:+UseSerialGC -Dserver.port=$PORT -jar target/eduai-backend-0.0.1-SNAPSHOT.jar
